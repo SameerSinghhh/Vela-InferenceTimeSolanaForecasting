@@ -1,0 +1,7 @@
+target_date,context_start,target_price,prediction_end,summarized_context,predicted_price,actual_price,predicted_change_pct,actual_change_pct,llm_reasoning,llm_reflection
+2025-04-16,2025-04-09,131.53944,2025-04-23,No relevant news found for this week.,,150.93217,,14.74,,
+2025-04-30,2025-04-23,147.73761,2025-05-07,No relevant news found for this week.,,147.18,,-0.38,,
+2025-05-14,2025-05-07,176.46,2025-05-21,No relevant news found for this week.,,173.94,,-1.43,,
+2025-05-28,2025-05-21,172.18175,2025-06-04,No relevant news found for this week.,,153.49078,,-10.86,,
+2025-06-11,2025-06-04,161.05586,2025-06-18,,,146.26965,,-9.18,,
+2025-06-25,2025-06-18,143.50912,2025-07-02,,,152.21375,,6.07,,
