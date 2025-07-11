@@ -1,0 +1,156 @@
+{
+  "baseline": {
+    "directional": {
+      "total_predictions": 6,
+      "correct_predictions": 3,
+      "accuracy": 0.5,
+      "up_predictions": 6,
+      "down_predictions": 0,
+      "up_accuracy": 0.5,
+      "down_accuracy": 0
+    },
+    "numerical": {
+      "mae_price": 22.356471666666675,
+      "mae_pct": 14.471921593697486,
+      "mape": 14.471921593697486,
+      "rmse_pct": 14.732104434067528,
+      "median_abs_pct_error": 15.538414683602051,
+      "max_abs_pct_error": 17.0881973020377,
+      "mean_pct_error": 11.424835938943666
+    },
+    "trading": {
+      "initial_capital": 10000,
+      "final_capital": 12353.258096485775,
+      "total_return": 0.23532580964857752,
+      "total_return_pct": 23.53258096485775,
+      "num_trades": 6,
+      "winning_trades": 3,
+      "losing_trades": 3,
+      "win_rate": 0.5,
+      "positions": [
+        [
+          "BUY",
+          12.96465160475728,
+          -2.12,
+          -0.0212
+        ],
+        [
+          "BUY",
+          10.748743035738546,
+          19.89,
+          0.1989
+        ],
+        [
+          "BUY",
+          14.982177762446822,
+          -1.01,
+          -0.0101
+        ],
+        [
+          "BUY",
+          17.759516239346755,
+          4.93,
+          0.0493
+        ],
+        [
+          "BUY",
+          15.1981973020377,
+          -1.89,
+          -0.0189
+        ],
+        [
+          "BUY",
+          19.995729689334897,
+          3.3,
+          0.033
+        ]
+      ],
+      "portfolio_values": [
+        10000,
+        9788.0,
+        11734.833200000001,
+        11616.31138468,
+        12188.995535944723,
+        11958.623520315368,
+        12353.258096485775
+      ]
+    }
+  },
+  "memory": {
+    "directional": {
+      "total_predictions": 6,
+      "correct_predictions": 3,
+      "accuracy": 0.5,
+      "up_predictions": 6,
+      "down_predictions": 0,
+      "up_accuracy": 0.5,
+      "down_accuracy": 0
+    },
+    "numerical": {
+      "mae_price": 17.854805000000002,
+      "mae_pct": 11.49950985080431,
+      "mape": 11.49950985080431,
+      "rmse_pct": 12.053845673811244,
+      "median_abs_pct_error": 12.164700319675848,
+      "max_abs_pct_error": 16.00942508911119,
+      "mean_pct_error": 8.860088280844627
+    },
+    "trading": {
+      "initial_capital": 10000,
+      "final_capital": 12353.258096485775,
+      "total_return": 0.23532580964857752,
+      "total_return_pct": 23.53258096485775,
+      "num_trades": 6,
+      "winning_trades": 3,
+      "losing_trades": 3,
+      "win_rate": 0.5,
+      "positions": [
+        [
+          "BUY",
+          10.513219282542613,
+          -2.12,
+          -0.0212
+        ],
+        [
+          "BUY",
+          11.971735290120945,
+          19.89,
+          0.1989
+        ],
+        [
+          "BUY",
+          14.99942508911119,
+          -1.01,
+          -0.0101
+        ],
+        [
+          "BUY",
+          10.755838233410502,
+          4.93,
+          0.0493
+        ],
+        [
+          "BUY",
+          13.024130433073422,
+          -1.89,
+          -0.0189
+        ],
+        [
+          "BUY",
+          14.996181356809084,
+          3.3,
+          0.033
+        ]
+      ],
+      "portfolio_values": [
+        10000,
+        9788.0,
+        11734.833200000001,
+        11616.31138468,
+        12188.995535944723,
+        11958.623520315368,
+        12353.258096485775
+      ]
+    }
+  }
+}
