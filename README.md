@@ -10,7 +10,7 @@
 
 ## 🚀 What We Built
 
-A **groundbreaking inference-time learning system** that predicts Solana (SOL) price movements using LLM memory—**no model training required**. Our AI learns from past predictions and market patterns in real-time.
+A **inference-time learning system** that predicts Solana (SOL) price movements using LLM memory—**no model training required**. Our AI learns from past predictions and market patterns in real-time.
 
 ```
 💡 Traditional ML: Train weights → Deploy → Static predictions
@@ -87,7 +87,6 @@ python 05_predict_with_memory.py
 | **MAE (% points)** | 14.99pp | **12.11pp** | **-2.9pp** ✅ |
 | **RMSE (% points)** | 16.89pp | **13.18pp** | **-3.7pp** ✅ |
 | **Max Error** | 24.62pp | **19.00pp** | **-5.6pp** ✅ |
-| **Trading Returns** | +23.5% | **+23.5%** | **Maintained** ✅ |
 
 </div>
 
@@ -216,15 +215,3 @@ Using lessons from memory to make smarter forecasts...
 - 🎯 **Multi-asset Support:** Expanding beyond SOL to other cryptocurrencies
 
 ---
-
-<div align="center">
-
-### ⭐ **Star this repo if you found it interesting!** ⭐
-
-**Built with ❤️ using OpenAI o3-mini, FAISS, and lots of coffee ☕**
-
----
-
-*"The future of prediction isn't better models—it's smarter memory."*
-
-</div> 
