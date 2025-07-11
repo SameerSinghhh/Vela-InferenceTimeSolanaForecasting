@@ -12,11 +12,11 @@ Down Predictions          0               0               +0
 --------------------------------------------------
 Metric                    Baseline        Memory          Improvement    
 ----------------------------------------------------------------------
-MAE (% points)            14.47pp           11.50pp           +2.97pp          
-MAPE (% points)           14.47pp           11.50pp           +2.97pp          
-RMSE (% points)           14.73pp           12.05pp           +2.68pp          
-Median Error (pp)         15.54pp           12.16pp           +3.37pp          
-Max Error (pp)            17.09pp           16.01pp           +1.08pp          
+MAE (% points)            14.99pp           12.11pp           +2.87pp          
+MAPE (% points)           14.99pp           12.11pp           +2.87pp          
+RMSE (% points)           16.89pp           13.18pp           +3.71pp          
+Median Error (pp)         14.95pp           12.88pp           +2.07pp          
+Max Error (pp)            24.62pp           19.00pp           +5.62pp          
 
 💰 3. SIMULATED TRADING PERFORMANCE
 --------------------------------------------------
@@ -34,19 +34,19 @@ Losing Trades             3               3               +0
 --------------------------------------------------
 Week         Actual     Baseline     Memory       B_Acc    M_Acc    B_Err    M_Err   
 --------------------------------------------------------------------------------
-2025-04-23   -2.1%       +13.0%        +10.5%        ❌        ❌        15.1pp     12.6pp    
-2025-05-07   +19.9%       +10.7%        +12.0%        ✅        ✅        9.1pp     7.9pp    
-2025-05-21   -1.0%       +15.0%        +15.0%        ❌        ❌        16.0pp     16.0pp    
-2025-06-04   +4.9%       +17.8%        +10.8%        ✅        ✅        12.8pp     5.8pp    
-2025-06-18   -1.9%       +15.2%        +13.0%        ❌        ❌        17.1pp     14.9pp    
-2025-07-02   +3.3%       +20.0%        +15.0%        ✅        ✅        16.7pp     11.7pp    
+2025-04-23   -2.1%       +20.0%        +12.0%        ❌        ❌        22.1pp     14.1pp    
+2025-05-07   +19.9%       +12.1%        +15.0%        ✅        ✅        7.8pp     4.9pp    
+2025-05-21   -1.0%       +23.6%        +18.0%        ❌        ❌        24.6pp     19.0pp    
+2025-06-04   +4.9%       +10.4%        +11.1%        ✅        ✅        5.5pp     6.2pp    
+2025-06-18   -1.9%       +19.3%        +15.0%        ❌        ❌        21.2pp     16.9pp    
+2025-07-02   +3.3%       +12.0%        +15.0%        ✅        ✅        8.7pp     11.7pp    
 
 🏆 5. SUMMARY & RECOMMENDATIONS
 --------------------------------------------------
 🎯 WINNER: Memory-Enhanced approach
 📊 Metrics: Directional 🤝 | Numerical ✅ | Trading 🤝
 ✨ Key improvements with memory:
-   • Lower prediction errors: +2.97pp MAE
+   • Lower prediction errors: +2.87pp MAE
    • Maintained directional accuracy: 50.0%
    • Maintained trading returns: +23.5%
 
