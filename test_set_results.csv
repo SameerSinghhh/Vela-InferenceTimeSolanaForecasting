@@ -1,0 +1,164 @@
+price_reference_date,context_start_date,target_date,prediction_date,target_date_sol_price,prediction_date_sol_price,actual_change_pct,predicted_price,predicted_change_pct,llm_reasoning,llm_reflection,tweets,btc_price_array,eth_price_array,sol_price_array,sp_price_array,btc_30d_change_pct,eth_30d_change_pct,sol_30d_change_pct,sp500_30d_change_pct
+2025-05-01,2025-05-06,2025-05-08,2025-05-09,147.22,163.96,11.37073767151203,,,,,"=== BITCOIN (BTC) ===
+@WatcherGuru | JUST IN: Bitcoin officially surpasses Amazon to become the 5th largest asset in the world by market cap. https://t.co/rkAWNFh92L | 2025-05-08 | Faves: 16250 | RTs: 2057
+@BitcoinMagazine | JUST IN: #Bitcoin hits $102,000 💥 https://t.co/qCWQB8lNwj | 2025-05-08 | Faves: 3033 | RTs: 403
+
+=== ETHEREUM (ETH) ===
+@MartiniGuyYT | RUMOR 🚨 SAUDI ARABIA IS BUYING BILLIONS WORTH OF BITCOIN AND $ETH https://t.co/0ZrOMwU2EJ | 2025-05-08 | Faves: 1592 | RTs: 231
+@TedPillows | Big players are accumulating $ETH. $92,000,000 Ethereum left Binance and Kraken. 🔥 https://t.co/qmMWM4N4rj | 2025-05-08 | Faves: 1625 | RTs: 250
+
+=== SOLANA (SOL) ===
+@AltcoinDaily | Wall Street is BUYING!!! $BTC $SOL https://t.co/EPB5NywEro | 2025-05-08 | Faves: 2198 | RTs: 376
+@0xCryptoBeat | 🚨BREAKING NEWS 破 : Superstate to bring tokenized public equities to Solana via SOL Strategies. https://t.co/ytxjDG2JYT | 2025-05-08 | Faves: 152 | RTs: 8
+
+=== S&P 500 (SP500) ===
+@kyle_chasse | MASSIVE CALL!!! FUNDSTRAT’S TOM LEE SAYS BITCOIN IS SCREAMING THAT THE S&P 500 WILL RIP HIGHER 🔥 AND THE REAL UPSIDE HASN’T EVEN STARTED!!! https://t.co/GgYFQHIouM | 2025-05-06 | Faves: 723 | RTs: 74
+@Eb67735B | Markets react positively after new trade deal with UK is announced‼️ Current: DOW + 1.56% S&P500 + 1.55% NASDAQ + 1.09% 💯FAIR TRADE‼️ MAGA/AMERICA FIRST‼️ https://t.co/PjvWa9dJ6R | 2025-05-08 | Faves: 89 | RTs: 86","[94212.86, 96494.97, 96904.63, 95877.19, 94319.56, 94748.38, 96800.2, 97034.25]","[1794.04, 1839.17, 1842.72, 1833.65, 1808.7, 1819.73, 1815.02, 1811.55]","[147.64, 150.84, 148.05, 146.8, 143.99, 146.7, 146.77, 147.22]","[5645.88, 5655.32, 5605.87, 5614.18, 5663.6, 5679.65]",22.489411561544735,16.5036368196639,37.70461135534562,14.387305449038118
+2025-05-08,2025-05-13,2025-05-15,2025-05-16,176.71,169.01,-4.357421764472875,,,,,"=== BITCOIN (BTC) ===
+@Vivek4real_ | 🇸🇦 SAUDI ARABIA CENTRAL BANK JUST REVEALED BUYING MICROSTRATEGY $MSTR \n\nSAUDI ARABIA IS BUYING #BITCOIN 🚀 https://t.co/5XEbFTbbk7 | 2025-05-15 | Faves: 5803 | RTs: 831
+@WatcherGuru | JUST IN: 🇺🇸 Eric Trump says it's a \""race to the top\"" to accumulate as much Bitcoin as possible. https://t.co/Cw9QhdZzUE | 2025-05-15 | Faves: 8848 | RTs: 1183
+
+=== ETHEREUM (ETH) ===
+@NasdaqBTCS | BTCS Inc. has arranged financing to buy up to $57.8M Ether ($ETH)\n\nThe company has entered into an agreement for the issuance of convertible notes led by ATW Partners LLC. \n\nThis capital infusion enables us to expand our Ethereum validator node operations and increase ETH https://t.co/WhxTHaEY2F | 2025-05-14 | Faves: 589 | RTs: 123
+@crypto_goos | 🚨RUMOR:\n\nBLACKROCK IS PUSHING THE 🇺🇸 SEC TO APPROVE THE ETHEREUM STAKING ETF\n\nIF TRUE, $ETH WILL FLY TO $10,000 https://t.co/3bAp3ui6WB | 2025-05-15 | Faves: 3885 | RTs: 583
+
+=== SOLANA (SOL) ===
+@playsolana | Play Solana enters the Jupiverse 🪐\n\nA new dimension is opening for the PSG1 👾 https://t.co/JXGGbwWHwX | 2025-05-14 | Faves: 2382 | RTs: 1092
+@SolanaConf | Solana is all about product, product, product. \n\nMeet 20+ teams shipping crypto products you can use today at Solana Accelerate in NYC May 22-23rd 🗽 https://t.co/zCmg64NDJu | 2025-05-15 | Faves: 378 | RTs: 85
+
+=== S&P 500 (SP500) ===
+@BitcoinMagazine | JUST IN - Coinbase CEO on joining the S&P 500: \""Crypto is here to stay. It's going to be a part of everyone's 401(k).\"" https://t.co/9vWaWDTuHd | 2025-05-14 | Faves: 4391 | RTs: 736
+@CollinRugg | On April 4, Jim Cramer warned of a 1987 \""Black Monday\"" style market crash.\n\nSince that comment just over a month ago, the S&P 500 is up over 16%.\n\nIf you sold on April 4, you missed out on some of the greatest 1-month gains ever.\n\nHere are some returns from individual stocks https://t.co/NsQJGbfRgq | 2025-05-13 | Faves: 17112 | RTs: 2609","[97034.25, 103239.13, 102973.71, 104701.07, 104106.96, 102812.49, 104167.33, 103538.83]","[1811.55, 2206.13, 2345.76, 2582.71, 2510.29, 2496.34, 2680.26, 2610.03]","[147.22, 163.96, 172.83, 177.62, 173.04, 174.25, 184.01, 176.71]","[5679.65, 5807.2, 5854.15, 5896.74, 5869.82, 5929.09]",22.473618903308157,60.83794992512803,36.656097749594,11.120086210935671
+2025-05-15,2025-05-20,2025-05-22,2025-05-23,173.68,179.69,3.4603869184707454,,,,,"=== BITCOIN (BTC) ===
+@Eagleatabey | 🔴#Bitcoin tüm zamanların en yüksek seviyesi olan 109.436 dolara ulaştı.\n\n#SONDAKİKA: Bitcoin, piyasa değeri bakımından Amazon'u geride bırakarak dünyanın 5. büyük varlığı oldu. \n\n#altcoin #kriptopara #crypto #avax #doge #etherum #eth #btc #dolar #altın #bist100 https://t.co/hpP3fl2B5r | 2025-05-21 | Faves: 368 | RTs: 83
+@Vivek4real_ | CNBC JUST SAID RETAIL INVESTORS HAVEN’T EVEN STARTED BUYING #BITCOIN YET \n\nWE ARE GOING SO MUCH HIGHER 🚀 https://t.co/5HfzNVTCgj | 2025-05-22 | Faves: 2728 | RTs: 329
+
+=== ETHEREUM (ETH) ===
+@SpaceandTimeDB | 📣 Just announced at #MSBuild: Space and Time indexed blockchain data will be integrated with @Microsoft Fabric.\n\nAs part of the integration, Microsoft developers will be able to access Space and Time indexed data from Bitcoin, @SuiNetwork, and @ethereum through Fabric. https://t.co/jOHThHuuVI | 2025-05-20 | Faves: 838 | RTs: 230
+@TedPillows | SUI hacker is buying $ETH.\n\nAlready a bag of $60,000,000 Ethereum. https://t.co/ZcXthBGSq3 | 2025-05-22 | Faves: 3476 | RTs: 382
+
+=== SOLANA (SOL) ===
+@wormhole | $DOGE is going multichain 🐕\n\nthe $35 billion asset is coming to @solana, powered by Wormhole NTT\n\nmuch wow\nsuch solana https://t.co/syJQb3eDYK | 2025-05-22 | Faves: 1531 | RTs: 315
+@SolanaFloor | 🚨JUST IN: @OndoFinance to launch ""Ondo Global Markets,"" enabling onchain trading of public securities, i.e., stocks on Solana. The platform will integrate with Solana DeFi as competition to bring traditional markets onchain intensifies.\n\n- Solana Accelerate 2025 https://t.co/ndqOc0YCS5 | 2025-05-22 | Faves: 809 | RTs: 144
+
+=== S&P 500 (SP500) ===
+@KobeissiLetter | What just happened?\n\nAt 1:00 PM ET, the S&P 500 fell nearly -80 points in 30 minutes without any major ""news.""\n\nWhat actually happened was a weak 20Y Bond Auction which sent US Treasury Yields soaring.\n\nInvestors MUST watch yields here. Let us explain.\n\n(a thread) https://t.co/vymDrRrxrU | 2025-05-21 | Faves: 8426 | RTs: 1339
+@PunterJeff | BTC ATH!\n\n$MSTR Q2 Pro Forma earnings\n\nWith BTC at $109,500, $MSTR has ~ $15B single quarter gain\n\nEstimated EPS of Q2 ~ $54 per share (7.7 P/E ratio) \n\nThis would qualify $MSTR for S&P 500 for the first time, leading to Billions of dollars in passive inflows\n\n🟩👆Higher https://t.co/XcdAmFMFMr | 2025-05-21 | Faves: 1363 | RTs: 176","[103538.83, 103735.66, 103489.29, 103186.95, 106430.53, 105605.41, 106791.31, 109673.49]","[2610.03, 2547.06, 2536.3, 2475.77, 2498.8, 2529.14, 2524.16, 2552.77]","[176.71, 169.01, 167.33, 165.93, 173.84, 166.86, 168.48, 173.68]","[5929.09, 5902.88, 5944.66, 5910.18, 5841.26, 5781.89]",25.309796818806905,61.5861300654505,27.051938551572803,7.152997079274716
+2025-05-22,2025-05-27,2025-05-29,2025-05-30,172.19,166.59,-3.252221383355592,,,,,"=== BITCOIN (BTC) ===
+@BitcoinMagazine | JUST IN: European soccer giant Paris Saint Germain announces they adopted a #Bitcoin treasury reserve 🇫🇷 https://t.co/nGeq7bUyBJ | 2025-05-29 | Faves: 9266 | RTs: 1380
+@pete_rizzo_ | BREAKING: PANAMA STATE OWNED BANK WILL OFFER #BITCOIN SAVINGS ACCOUNT\n\nADOPTION IS PRICED IN! 🔥 https://t.co/eqCLLJ23Px | 2025-05-29 | Faves: 1220 | RTs: 245
+
+=== ETHEREUM (ETH) ===
+@StaniKulechov | The Ethereum Foundation is now borrowing GHO, a decentralized stablecoin backed by Aave.\n\nThe EF is not only supplying ETH to Aave, but also borrowing from Aave. The full DeFi circle. https://t.co/prJyHi5jsM | 2025-05-29 | Faves: 1094 | RTs: 120
+@0xkaiserkarel | Union is now powering approx 99% of TVL on Babylon. (graph displays Ethereum because that's where our vault is). \n\nSteady growth derived from building hard. Love to see it. https://t.co/glRS0z6StA | 2025-05-29 | Faves: 539 | RTs: 71
+
+=== SOLANA (SOL) ===
+@MetaMask | Solana is now live on MetaMask Extension! 🦊 https://t.co/ekUY6sH2iD | 2025-05-27 | Faves: 12635 | RTs: 1883
+@Ledger | 🟣 The Ledger Flex™ – @Solana Edition Phase 2 is here! 💥\n\nThat means holders of:\n\n- @MonkeDAO (SMB Gen2 &amp; Gen3)\n- @DeadKingSociety (Kings &amp; Nobles)\n- @luciddrakes\n- @TheChimpions\n- @MagicEden\n- UFD (@BasementRon)\n- @MadLads\n- @bonk_inu, @itsafwog, @sanctumso, @jito_sol, https://t.co/T9RNYAkaqm | 2025-05-29 | Faves: 646 | RTs: 137
+
+=== S&P 500 (SP500) ===
+@tmiyatake1 | アメリカで生まれた年間約370万人の子供たちにアメリカ政府が$1,000をS&amp;P 500に出資してくれる投資口座を作る制度が直近のアメリカのインフラ計画案で承認された。\n\n子供が18歳になると口座に一部アクセスすることが出来て、35歳の時に全部アクセスできるようになる。\n\nこれは良い制度。 https://t.co/jZmkU8NIgT | 2025-05-27 | Faves: 352 | RTs: 76
+@maryoakleysan | 今回のNVDA決算は今までとは逆で期待値が低めだ。売り上げをミスるのではないか、との声もある。NVDAは時価総額ではAAPL、 MSFTに次ぐ第3位だが決算が相場に与える影響では圧倒的に第1位。今S&amp;P500 最高値まで3％。水曜のNVDAの決算は相場のかなり重要な先行指数になる。まりーさんの決算プレビュー！ https://t.co/CcZYKvUWi4 | 2025-05-28 | Faves: 873 | RTs: 91","[109673.49, 111679.36, 107278.51, 107802.27, 109023.78, 109440.41, 108992.17, 107795.57]","[2552.77, 2664.08, 2526.39, 2530.89, 2551.38, 2564.14, 2663.01, 2681.84]","[173.68, 179.69, 173.84, 176.03, 175.73, 174.91, 176.81, 172.19]","[5781.89, 5854.07, 5925.54, 5939.96, 5903.67]",13.49069180157138,49.08138817394978,16.494147892564776,7.350384766448957
+2025-05-29,2025-06-03,2025-06-05,2025-06-06,153.36,144.54,-5.751173708920201,,,,,"=== BITCOIN (BTC) ===
+@opnetbtc | 🧪 TIME TO BREAK TESTNET 🧪 Smart contracts and DeFi on Bitcoin Layer 1 are ready for you to explore, test, and push to the limit🍊💊 https://t.co/iZeRjCi5oI https://t.co/vMbXEg8bqk | 2025-06-05 | Faves: 33293 | RTs: 17116
+@Cointelegraph | 🔥 BULLISH: Cathie Wood says institutional demand for #Bitcoin is only beginning and expects scarcity to drive prices higher as firms compete for limited supply. https://t.co/IZpY4IELR5 | 2025-06-05 | Faves: 523 | RTs: 130
+
+=== ETHEREUM (ETH) ===
+@arkham | BLACKROCK IS BUYING ETHEREUM. BLACKROCK BOUGHT $50M OF ETH TODAY WHAT DO THEY KNOW? https://t.co/FCEgOLCRwN | 2025-06-03 | Faves: 3626 | RTs: 604
+@SMQKEDQG | ‼️ MAY 2025: BITCOIN AND ETHEREUM TO BE EXCLUDED FROM EU CRYPTO REGULATIONS ‼️ A speech from the Central Bank of Ireland confirms: “MiCA will not cover all crypto-assets, with some of the most well-known crypto-assets, such as Bitcoin and Ether, not within scope of the https://t.co/atDXaNV1ty | 2025-06-05 | Faves: 1470 | RTs: 381
+
+=== SOLANA (SOL) ===
+@MeteoraAG | We're allocating $1M to accelerate teams building Meteora Capital Markets on Solana. With Meteora's tech stack, teams skip months of development and audits. Build with us, focus on finding PMF and driving growth — we handle the infrastructure. Details below. https://t.co/R3EC6iTS7Z | 2025-06-05 | Faves: 773 | RTs: 120
+@solana | Accelerate permissionless science on Solana 🧪 Big shoutout to everyone who joined us at the DeSci Fair in NYC! https://t.co/WvuQchzPOl | 2025-06-05 | Faves: 919 | RTs: 197
+
+=== S&P 500 (SP500) ===
+No impactful tweets found","[107795.57, 105646.21, 103994.72, 104637.3, 105649.81, 105888.48, 105434.37, 104750.78]","[2681.84, 2632.84, 2529.83, 2529.1, 2536.18, 2607.2, 2593.48, 2608.61]","[172.19, 166.59, 156.24, 156.64, 157.78, 157.0, 155.34, 153.36]","[5903.67, 5896.68, 5938.56, 5978.94, 5985.67, 5987.06]",10.556803187558453,43.35148620949262,4.539877300613514,6.641753559736241
+2025-06-05,2025-06-10,2025-06-12,2025-06-13,161.06,152.79,-5.134732397864156,,,,,"=== BITCOIN (BTC) ===
+@heartandsoilHQ | BIG NEWS: WE NOW ACCEPT #BITCOIN AS PAYMENT  Fix the money, fix the world. https://t.co/Eej33YxbNz | 2025-06-12 | Faves: 4374 | RTs: 409
+@Ashcryptoreal | BREAKING: 🇺🇸 AMERICAN EXPRESS WITH 141 MILLION USERS PARTNERS WITH COINBASE TO LAUNCH COINBASE ONE CARD WITH 4% BITCOIN BACK ON ALL PURCHASES. https://t.co/iEJBfWzVHt | 2025-06-12 | Faves: 2853 | RTs: 398
+
+=== ETHEREUM (ETH) ===
+@EFNextBillion | 🚨 Ethereum Season of Internships is now live! 🚨 Applications are open for paid, remote internships across 18 teams and 30+ roles in the Ethereum ecosystem: from dev to design, research, community, and more! Explore the roles & apply now: https://t.co/kTBS10nxKg | 2025-06-12 | Faves: 451 | RTs: 139
+@l3olanza | The Bull Case for Ethereum — @Etherealize_io Institutional Thesis 🧵 ETH is not a tech stock. ETH is digital oil for the digital economy. ✅ $740,000/ETH Institutional Valuation ✅ Settlement layer for the tokenized global economy ✅ Institutions are entering at scale ✅ https://t.co/qDJTnx99ra | 2025-06-12 | Faves: 294 | RTs: 61
+
+=== SOLANA (SOL) ===
+@ali_charts | #Solana $SOL breaking above $200 could catalyze a major 5X to 10X bull run! https://t.co/WlkH38xE0O | 2025-06-10 | Faves: 561 | RTs: 81
+@xdex_xyz | ✅We have completed the audit for XDEX (Swap & Liquidity), Staking and Farming for the #X1 and #Solana blockchain.  All recommendations were followed and vulnerabilities fixed.  🔗 Read the full report here: https://t.co/B9EKsVo4ti | 2025-06-12 | Faves: 114 | RTs: 39
+
+=== S&P 500 (SP500) ===
+@Barchart | S&P 500 is now historically expensive on EVERY SINGLE valuation metric that Bank of America tracks 🚨 https://t.co/EUWO7meZWK | 2025-06-11 | Faves: 709 | RTs: 154
+@RyanDetrick | The S&P 500 is up 9.0% since the Zweig Breadth Thrust triggered on April 25. Do you remember how many mocked this? I do and it was a lot of people. 😊 https://t.co/j2BJVlUnJh | 2025-06-12 | Faves: 978 | RTs: 105","[104750.78, 101574.37, 104390.65, 105617.51, 105793.02, 110295.69, 110261.8, 108685.91]","[2608.61, 2416.46, 2477.18, 2526.19, 2510.84, 2681.29, 2813.74, 2773.6]","[153.36, 144.54, 147.91, 150.13, 152.43, 161.09, 165.03, 161.06]","[5987.06, 6004.63, 6009.91, 6049.38, 6009.9, 6000.56]",5.712749491817578,11.106660150460264,-7.569583931133428,1.7606338417498586
+2025-06-12,2025-06-17,2025-06-19,2025-06-20,146.36,147.07,0.485105220005452,,,,,"=== BITCOIN (BTC) ===
+@BitcoinMagazine | JUST IN: Bitcoin is up over 574% since the 2022 bear market low 👀 This is just the beginning 🚀 | 2025-06-19 | Faves: 1578 | RTs: 409
+@Ashcryptoreal | BITCOIN REPEATING BULLISH PATTERN LET’S PRAY FOR A PUMP !! | 2025-06-19 | Faves: 3166 | RTs: 598
+
+=== ETHEREUM (ETH) ===
+@WhaleInsider | JUST IN: 🌎 Ethereum co-founder, Joseph Lubin, says ‘Ethereum Layer 1 will be the master ledger for the world.’ | 2025-06-19 | Faves: 3187 | RTs: 413
+@Cointelegraph | 🔥 BULLISH: BlackRock has bought over $750 million worth of $ETH in June and hasn’t sold a single token. | 2025-06-19 | Faves: 3563 | RTs: 497
+
+=== SOLANA (SOL) ===
+@solana | America's crypto moment is now 🇺🇸🗽 are you ready to Accelerate? | 2025-06-19 | Faves: 1131 | RTs: 221
+@dfinity | 🚀 New demo: Control Solana assets from an Internet Computer smart contract canister! ✅ Read balances ✅ Send SOL ✅ Transfer SPL tokens like USDC True cross-chain Web3 in action 📺 Watch now👇 | 2025-06-19 | Faves: 431 | RTs: 127
+
+=== S&P 500 (SP500) ===
+@brewmarkets | The S&P 500's best-performing stock of 2025: Palantir. | 2025-06-17 | Faves: 1105 | RTs: 177
+@IncomeSharks | Israel's stock market is up 14% since the recent attacks. They are outperforming the S&P 500. | 2025-06-19 | Faves: 652 | RTs: 51","[108685.91, 105924.59, 106108.09, 105464.84, 105555.59, 106794.12, 104602.07, 104886.77]","[2773.6, 2651.92, 2579.72, 2533.18, 2547.23, 2540.31, 2510.82, 2524.4]","[161.06, 152.79, 148.63, 144.76, 152.81, 150.86, 147.75, 146.36]","[6000.56, 6004.0, 6012.15, 5987.93, 5999.67]",-0.6804954405271467,-0.1874154851056003,-12.285748531703224,1.5141670812056447
+2025-06-19,2025-06-24,2025-06-26,2025-06-27,143.51,139.06,-3.1008292105079707,,,,,"=== BITCOIN (BTC) ===
+@Whale_Guru | JUST IN : CHINA 🇨🇳 ALLOWS OWNERSHIP OF #BITCOIN &amp; CRYPTO . https://t.co/v4dcUuB7NS | 2025-06-24 | Faves: 6162 | RTs: 907
+@Vivek4real_ | #BITCOIN JUST SURPASSED GOOGLE TO BECOME THE 6th LARGEST ASSET IN THE WORLD\n\nWHAT A TIME TO BE ALIVE!!! https://t.co/me2GizfemY | 2025-06-26 | Faves: 4016 | RTs: 793
+
+=== ETHEREUM (ETH) ===
+@Ethprofit | 📢BREAKING NEWS: Ethereum has been recognized as a reserve asset by the U.S. housing system — a defining moment for institutional $ETH adoption and collateral recognition! 🚀 https://t.co/hvmf7BYOfc | 2025-06-25 | Faves: 2039 | RTs: 357
+@UZXchinese | ⚡️#UZX 实时热点 #ETH\n\nBit Digital宣布将转型为专注于以太坊质押与财库公司，并逐步出售BTC换成ETH。 https://t.co/FvyiNEsHgj | 2025-06-26 | Faves: 236 | RTs: 96
+
+=== SOLANA (SOL) ===
+@CryptoCurb | 🚨  JUST IN:   @SpaceX INVESTMENT TOKEN TO BE LAUNCHED ON @SOLANA\n\nSOLANA IS THE DECENTRALIZED NASDAQ\n\n#SOLANA ⚡️ https://t.co/Cj73XmxGl0 | 2025-06-25 | Faves: 895 | RTs: 153
+@SuiNSdapp | Namespaces shouldn't be siloed! Introducing the SuiNS x @SNS Portal ⚡️\n\nYour handle. Your brand. Your identity. Portable across Solana &amp; Sui ⛓️\n\nRead to the end, rewards are waiting for you on the liquid chain 💧 https://t.co/7JuLufnxDN | 2025-06-25 | Faves: 669 | RTs: 153
+
+=== S&P 500 (SP500) ===
+@unusual_whales | The S&amp;P500 is currently at all time highs. https://t.co/IHTpWGjLGs | 2025-06-26 | Faves: 5985 | RTs: 392
+@MartiniGuyYT | UPDATE 🚨MICHAEL SAYLOR'S STRATEGY NOW HAS A 91% CHANCE OF JOINING THE S&amp;P 500 IN Q2 https://t.co/jpi2obToWC | 2025-06-25 | Faves: 2511 | RTs: 326","[104886.77, 104681.03, 103315.08, 102212.03, 100987.48, 105571.52, 106047.41, 107375.07]","[2524.4, 2521.53, 2407.35, 2298.84, 2228.48, 2421.83, 2448.74, 2419.15]","[146.36, 147.07, 140.17, 135.2, 131.62, 144.85, 145.95, 143.51]","[5999.67, 5969.67, 6061.21, 6104.23, 6112.09, 6150.7]",-1.8871822574495072,-5.654527443899311,-17.952089646103715,3.7998224634379287
+2025-06-26,2025-07-01,2025-07-03,2025-07-04,152.23,152.4,0.111673126190643,,,,,"=== BITCOIN (BTC) ===
+@BitcoinNewsCom | NEW: Gold miner Hamak Gold Limited announces it will add Bitcoin to its treasury. https://t.co/FtfF4QKyu2 | 2025-07-03 | Faves: 296 | RTs: 53
+@BitcoinNews21M | ""I was a proud skeptic! But I studied it. I learned about it. And I came away saying I believe #Bitcoin is legitimate."" - BlackRock CEO Larry Fink https://t.co/fOrnTRDW4a | 2025-07-03 | Faves: 1313 | RTs: 224
+
+=== ETHEREUM (ETH) ===
+@Cointelegraph | 🇺🇸 LATEST: Tom Lee predicts banks will buy $ETH to secure their stablecoins, not just for speculation, but for infrastructure. https://t.co/qlwimAljLX | 2025-07-02 | Faves: 4850 | RTs: 884
+@AbsGMCrypto | BREAKING: 🇺🇸 SEC Approves ETF Conversion of Grayscale's Digital Large Cap Fund - $BTC $ETH $XRP $SOL $ADA! FLOODGATES ARE ABOUT TO OPEN!💥📈 https://t.co/t1SvCnNlBr | 2025-07-01 | Faves: 1907 | RTs: 460
+
+=== SOLANA (SOL) ===
+@AITECHio | 🔒 Date Locked In: Bridge to Solana Goes Live on July 10th! We’re thrilled to announce that our Bridge to Solana goes live on July 10th, expanding platform functionality and supports broader access to ecosystem utilities while maintaining secure, multi-chain compatibility. Stay https://t.co/RzhnJp6teI | 2025-07-03 | Faves: 1059 | RTs: 411
+@pumpdotfun | private key imports are LIVE 🔥 iOS users can now import ANY Solana wallet into the Pump Fun mobile app! download the app now 👇 https://t.co/p7DZyTeExr | 2025-07-03 | Faves: 1080 | RTs: 124
+
+=== S&P 500 (SP500) ===
+No impactful tweets found","[107375.07, 106954.92, 107090.55, 107327.82, 108383.44, 107144.38, 105703.1, 108845.02]","[2419.15, 2416.02, 2423.93, 2437.11, 2500.61, 2486.43, 2405.86, 2570.8]","[143.51, 139.06, 142.19, 150.83, 153.35, 154.74, 146.93, 152.23]","[6150.7, 6193.36, 6187.25, 6193.88, 6246.46]",2.7921262067412886,-1.396133783369118,-3.038216560509561,4.474371711373595
+2025-07-03,2025-07-08,2025-07-10,2025-07-11,157.28,164.06,4.3107833163784335,,,,,"=== BITCOIN (BTC) ===
+@BTCTN | JUST IN: 🔥 #Bitcoin goes parabolic, hitting new ATH after new ATH, reaching over $116,500! 💥 https://t.co/R3Ab6RjCKy | 2025-07-10 | Faves: 1099 | RTs: 402
+@binance | Bitcoin at ATH. Earth is no longer enough. https://t.co/nAoYg28HVY | 2025-07-09 | Faves: 1662 | RTs: 270
+
+=== ETHEREUM (ETH) ===
+@sassal0x | Ethereum co-founder Joe Lubin plans to buy tens of millions of dollars of ETH *every day* through SharpLink Gaming. You are not bullish enough. https://t.co/k74Qg8Bage | 2025-07-10 | Faves: 2465 | RTs: 296
+@WatcherGuru | JUST IN: $2,900 $ETH https://t.co/WKrEnPeO2f | 2025-07-10 | Faves: 7266 | RTs: 839
+
+=== SOLANA (SOL) ===
+@SolanaFloor | 🚨JUST IN: $SOL staking goes live in the U.S. on @RobinhoodApp. Robinhood had previously delisted $SOL in 2023 after the U.S. SEC classified it as an unregistered security. https://t.co/fKemV88d26 | 2025-07-10 | Faves: 484 | RTs: 72
+@solana | there's 6,945 Bitcoin on Solana 😉 hope this helps https://t.co/eyGwaIDR2U | 2025-07-10 | Faves: 1940 | RTs: 305
+
+=== S&P 500 (SP500) ===
+@Barchart | JUST IN 🚨: S&P 500 hits new all-time high 🥳📈🫂 https://t.co/lPPffeVVU5 | 2025-07-10 | Faves: 963 | RTs: 140
+@EricLDaugh | 🚨 BREAKING: The S&P 500 just reached ANOTHER all-time high, and is +26% from the April 2025 dip. If you listened to the Democrats and experts back then, you would've made a HORRIBLE decision. All this DESPITE the new tariff announcements. https://t.co/kmfudjMueG | 2025-07-10 | Faves: 2683 | RTs: 606","[108845.02, 109635.66, 108015.84, 108231.19, 109235.33, 108298.23, 108950.27, 111329.2]","[2570.8, 2590.85, 2508.1, 2517.28, 2571.4, 2542.97, 2615.51, 2770.74]","[152.23, 152.4, 147.76, 147.64, 151.87, 148.87, 151.81, 157.28]","[6259.04, 6234.03, 6243.33, 6266.8, 6255.68]",0.9370357082856046,3.3360807670934447,-2.365137500775965,3.410266837262665
+2025-07-08,2025-07-13,2025-07-15,2025-07-16,,163.96,,,,,,"=== BITCOIN (BTC) ===
+@rovercrc | 💥BREAKING: WHITE HOUSE OFFICIALS SAY #BITCOIN AND CRYPTO IS GOING TO $20 TRILLION AFTER PASSING MARKET STRUCTURE BILL. IT'S HAPPENING SOON! https://t.co/GTgsW4pC6h | 2025-07-14 | Faves: 8391 | RTs: 1253
+@FearedBuck | 14 years ago, someone bought 20,000 Bitcoin for $15,400, today, they moved/sold it for $2.4 billion 🤯 https://t.co/ew7DKX8mmq | 2025-07-15 | Faves: 41087 | RTs: 1286
+
+=== ETHEREUM (ETH) ===
+@Ashcryptoreal | $ETH IS GOING TO $3400 NEXT 🚀 https://t.co/gUUJUoWGcR | 2025-07-14 | Faves: 3541 | RTs: 557
+@IncomeSharks | One of the best looking charts right now is Ethereum https://t.co/5N5BwXtPe0 | 2025-07-15 | Faves: 2435 | RTs: 239
+
+=== SOLANA (SOL) ===
+@dawninternet | The DAWN Black Box. The first DePIN multi-miner powered by @solana We’ve partnered with 10 of the best projects in DePIN to make the Black Box the first DePIN multi-miner for consumers The Black Box allows you to share your excess Internet capacity ala DAWN, and interact with | 2025-07-15 | Faves: 1781 | RTs: 246
+@CryptoCurb | $SOL $200 will come fast $300 will come faster $500+ will come fastest #SOLANA ⚡️ https://t.co/WKrtmrLdHr | 2025-07-14 | Faves: 533 | RTs: 56
+
+=== S&P 500 (SP500) ===
+@Barchart | BlackRock's Bitcoin $BTC ETF just became the fastest in history to hit $80 Billion in AUM.  About 5x faster than the previous best which was Vanguard's S&amp;P 500 ETF $VOO https://t.co/wtGlAJRI6N | 2025-07-13 | Faves: 764 | RTs: 186
+@TFTC21 | The S&amp;P 500 is up nearly 100% in dollar terms since 2020. But priced in #bitcoin? It’s down 85%. The real benchmark has changed. https://t.co/rqLbHgkBkq | 2025-07-14 | Faves: 914 | RTs: 173","[108298.23, 108950.27, 111329.2, 115986.23, 117530.71, 117432.2, 119115.79, 119850.57]","[2542.97, 2615.51, 2770.74, 2954.83, 2958.33, 2942.85, 2973.23]","[148.87, 151.81, 157.28, 164.06, 162.88, 160.68, 161.19]","[6243.33, 6266.8, 6255.68, 6255.15, 6295.29, 6257.46]",13.640308940875473,17.371446166478506,11.34982039237359,4.2215189873417724

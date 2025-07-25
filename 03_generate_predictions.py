@@ -218,19 +218,21 @@ def get_current_week_market_data(df, current_week_idx):
 
 def process_training_weeks():
     """
-    Process training weeks (first 40) to generate predictions with NO MEMORY.
-    Currently processing ONLY WEEK 1 for testing.
+    Process ALL weeks to generate predictions with NO MEMORY.
+    Only completes weeks that haven't been done yet.
     """
     
     # Load the final training data
     df = pd.read_csv('final_training_set.csv')
     
-    # Process first 40 weeks (training set)
-    weeks_to_process = 40
+    # Process ALL weeks in the dataset
+    weeks_to_process = len(df)
     
-    print(f"🚀 GENERATING TRAINING PREDICTIONS (NO MEMORY)")
-    print(f"📊 Processing first {weeks_to_process} weeks (full training set)")
-    print(f"🎯 Training set: Weeks 1-40 (no STM/LTM memory)")
+    print(f"🚀 GENERATING PREDICTIONS (NO MEMORY)")
+    print(f"📊 Processing ALL {weeks_to_process} weeks in final_training_set.csv")
+    print(f"🎯 Training weeks 1-40: (no STM/LTM memory)")
+    print(f"🎯 Test weeks 41-{weeks_to_process}: (no STM/LTM memory)")
+    print(f"⚠️  Only completing weeks that haven't been processed yet")
     print("=" * 60)
     
     processed_count = 0
@@ -326,7 +328,7 @@ def process_training_weeks():
         # Delay to avoid rate limiting
         time.sleep(3)
     
-    print(f"\n🎉 TRAINING PREDICTION SUMMARY:")
+    print(f"\n🎉 PREDICTION GENERATION SUMMARY:")
     print(f"   📊 Weeks processed: {processed_count}")
     print(f"   ✅ Successful: {success_count}")
     print(f"   📈 Success rate: {(success_count/processed_count)*100:.1f}%" if processed_count > 0 else "   📈 Success rate: 0%")
@@ -334,13 +336,14 @@ def process_training_weeks():
     return success_count > 0
 
 if __name__ == "__main__":
-    print("🚀 PHASE 3: TRAINING SET PREDICTION GENERATION")
-    print("🎯 Generating predictions for training weeks (NO MEMORY)")
-    print("📊 Processing all 40 training weeks...")
+    print("🚀 PHASE 3: PREDICTION GENERATION (NO MEMORY)")
+    print("🎯 Generating predictions for ALL weeks (NO MEMORY)")
+    print("📊 Processing all weeks in final_training_set.csv...")
+    print("⚠️  Only completing missing predictions, preserving existing data")
     print("\n")
     
     if process_training_weeks():
-        print("\n🎉 All 40 training weeks processed successfully!")
-        print("📝 Next step: Create inference-time memory system for test weeks 41-51")
+        print(f"\n🎉 All weeks processed successfully!")
+        print("📝 All predictions in final_training_set.csv are now complete")
     else:
         print("\n❌ Processing failed or no weeks were processed.") 
