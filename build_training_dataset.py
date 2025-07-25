@@ -238,10 +238,36 @@ def rebuild_training_dataset():
     """Main function to rebuild the complete training dataset"""
     print("🚀 Starting training dataset rebuild...")
     
-    # Step 1: Load base training data
-    print("\n📊 Step 1: Loading base training data...")
-    training_data = pd.read_csv('training_set2.csv')
-    print(f"Loaded {len(training_data)} periods")
+    # Step 1: Generate base training data (51 weekly periods)
+    print("\n📊 Step 1: Generating base training data...")
+    
+    # Generate 51 weekly periods starting from 2024-07-25
+    start_date = pd.to_datetime('2024-07-25')
+    periods = []
+    
+    for i in range(51):
+        price_reference_date = start_date + timedelta(days=i*7)
+        context_start_date = price_reference_date + timedelta(days=5)
+        target_date = context_start_date + timedelta(days=2)
+        prediction_date = target_date + timedelta(days=1)
+        
+        periods.append({
+            'price_reference_date': price_reference_date.strftime('%Y-%m-%d'),
+            'context_start_date': context_start_date.strftime('%Y-%m-%d'),
+            'target_date': target_date.strftime('%Y-%m-%d'),
+            'prediction_date': prediction_date.strftime('%Y-%m-%d'),
+            'target_date_sol_price': None,
+            'prediction_date_sol_price': None,
+            'actual_change_pct': None,
+            'tweets': None,
+            'predicted_price': None,
+            'predicted_change_pct': None,
+            'llm_reasoning': None,
+            'llm_reflection': None
+        })
+    
+    training_data = pd.DataFrame(periods)
+    print(f"Generated {len(training_data)} periods")
     
     # Step 2: Load all price data
     print("\n📈 Step 2: Loading price data files...")
@@ -295,7 +321,7 @@ def rebuild_training_dataset():
     
     # Step 9: Save final dataset
     print("\n💾 Step 9: Saving final dataset...")
-    output_file = 'ZTESTCSV.csv'
+    output_file = 'final_training_set_copy.csv'
     training_data.to_csv(output_file, index=False)
     
     print(f"\n✅ SUCCESS! Rebuilt training dataset saved as: {output_file}")
