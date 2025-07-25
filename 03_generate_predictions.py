@@ -1,74 +1,95 @@
 import os
 import pandas as pd
-import openai
-from datetime import datetime
 import time
+from datetime import datetime
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 
-# Initialize OpenAI client
-client = openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+try:
+    from xai_sdk import Client
+    from xai_sdk.chat import user, system
+except ImportError:
+    print("Error: xai_sdk not installed. Please install with: pip install xai-sdk")
+    exit(1)
 
-def generate_prediction(target_date, current_price, context, prediction_end_date):
+# Initialize Grok client
+client = Client(api_key=os.getenv('GROK_API_KEY'))
+
+def generate_prediction(target_date, current_sol_price, prediction_date, tweets, market_data):
     """
-    Generate a price prediction using o3-mini based on current price and context.
+    Generate SOL price prediction using Grok based on current price, tweets, and previous week's market data.
+    NO LOOKAHEAD BIAS - only uses data available on or before target_date.
     """
     
     # Convert dates to readable format
     target_date_str = datetime.strptime(target_date, '%Y-%m-%d').strftime('%B %d, %Y')
-    prediction_end_str = datetime.strptime(prediction_end_date, '%Y-%m-%d').strftime('%B %d, %Y')
+    prediction_date_str = datetime.strptime(prediction_date, '%Y-%m-%d').strftime('%B %d, %Y')
     
-    # Truncate context to avoid token limits
-    short_context = context[:300] + "..." if len(context) > 300 else context
-    
-    prediction_prompt = f"""You are a crypto analyst predicting Solana (SOL) price.
+    prediction_prompt = f"""You are a professional cryptocurrency analyst making a Solana (SOL) price prediction.
 
-CURRENT DATA:
-- Date: {target_date_str}
-- Current SOL Price: ${current_price:.2f}
-- Target Date: {prediction_end_str} (7 days ahead)
+STRICT NO LOOKAHEAD RULE: You can ONLY use information available on or before {target_date_str}. 
 
-CONTEXT:
-{short_context}
+CURRENT MARKET DATA (as of {target_date_str}):
+- Current SOL Price: ${current_sol_price:.2f}
+- Prediction Target: {prediction_date_str} (1 day ahead)
 
-RULES:
-- Only use information available on or before {target_date_str}
-- Consider technical trends, market sentiment, and fundamentals
-- SOL can move 10-30% in a week due to crypto volatility
+MARKET CONTEXT (as of {target_date_str}):
+- BTC 30-day change: {market_data['btc_30d_change']:.2f}%
+- ETH 30-day change: {market_data['eth_30d_change']:.2f}%  
+- SOL 30-day change: {market_data['sol_30d_change']:.2f}%
+- S&P 500 30-day change: {market_data['sp_30d_change']:.2f}%
 
-Provide your prediction in this exact format:
+RECENT PRICE TRENDS (Context Period):
+- BTC Prices: {market_data['btc_prices']}
+- ETH Prices: {market_data['eth_prices']}
+- SOL Prices: {market_data['sol_prices']}
+- S&P 500 Prices: {market_data['sp_prices']}
 
-PREDICTED_PRICE: [number only, e.g., 162.50]
-REASONING: [2-3 sentences explaining your prediction]
+MARKET SENTIMENT & NEWS (from social media analysis):
+{tweets}
 
-Make a specific price prediction for 7 days from now."""
+ANALYSIS INSTRUCTIONS:
+1. Analyze the recent crypto market trends from the context period
+2. Consider correlation with traditional markets (S&P 500)
+3. Evaluate sentiment from the social media analysis
+4. Factor in SOL's 30-day performance vs other assets
+5. Make a realistic 1-day price prediction
+
+RESPONSE FORMAT:
+PREDICTED_PRICE: [dollar amount, e.g. 185.50]
+REASONING: [3-4 sentences explaining your analysis and prediction rationale]
+
+Provide a specific SOL price prediction for {prediction_date_str}."""
 
     try:
-        response = client.chat.completions.create(
-            model="o3-mini",
-            messages=[
-                {"role": "system", "content": "You are a professional cryptocurrency analyst with expertise in Solana (SOL) price prediction. You provide clear, data-driven predictions with concise reasoning."},
-                {"role": "user", "content": prediction_prompt}
-            ],
-            max_completion_tokens=1000
+        # Create chat with Grok
+        chat = client.chat.create(
+            model="grok-4-0709",
+            temperature=0.2
         )
         
-        content = response.choices[0].message.content.strip()
+        # Add system message
+        chat.append(system("You are a professional cryptocurrency analyst specializing in Solana (SOL) price prediction. You provide data-driven analysis with clear reasoning."))
         
-        # Parse the response - be more flexible
-        lines = content.split('\n')
+        # Add user prompt
+        chat.append(user(prediction_prompt))
+        
+        # Get response
+        response = chat.sample()
+        content = response.content.strip()
+        
+        # Parse the response
+        import re
         predicted_price = None
         reasoning = ""
         
-        # Extract price from anywhere in the response
-        import re
+        # Extract predicted price
         price_patterns = [
             r'PREDICTED_PRICE:\s*[\$]?(\d+\.?\d*)',
-            r'price.*?[\$]?(\d+\.?\d*)',
+            r'prediction.*?[\$]?(\d+\.?\d*)',
             r'target.*?[\$]?(\d+\.?\d*)',
-            r'predict.*?[\$]?(\d+\.?\d*)',
             r'[\$](\d+\.?\d*)'
         ]
         
@@ -83,11 +104,9 @@ Make a specific price prediction for 7 days from now."""
         
         # Extract reasoning
         reasoning_patterns = [
-            r'REASONING:\s*(.+)',
-            r'reasoning.*?:\s*(.+)',
-            r'because\s+(.+)',
-            r'expect.*?(\w.+)',
-            r'analysis.*?(\w.+)'
+            r'REASONING:\s*(.+?)(?:\n\n|\n[A-Z]|\Z)',
+            r'reasoning.*?:\s*(.+?)(?:\n\n|\n[A-Z]|\Z)',
+            r'analysis.*?:\s*(.+?)(?:\n\n|\n[A-Z]|\Z)'
         ]
         
         for pattern in reasoning_patterns:
@@ -96,177 +115,232 @@ Make a specific price prediction for 7 days from now."""
                 reasoning = matches[0].strip()
                 break
         
-        # If no reasoning found, use the whole response
+        # Fallback: use whole response if no specific reasoning found
         if not reasoning:
             reasoning = content.strip()
         
+        # Validate price is reasonable
         if predicted_price is None:
-            # Try to extract any price-like number from the response
+            # Try to extract any reasonable SOL price from response
             all_numbers = re.findall(r'\d+\.?\d*', content)
             if all_numbers:
-                # Find the number closest to the current price
-                numbers = [float(n) for n in all_numbers if 50 < float(n) < 500]  # Reasonable SOL price range
+                numbers = [float(n) for n in all_numbers if 50 < float(n) < 1000]
                 if numbers:
                     predicted_price = numbers[0]
         
         if predicted_price is None:
-            raise ValueError(f"Could not parse predicted price from response: {content}")
+            raise ValueError(f"Could not parse predicted price from: {content}")
         
         return predicted_price, reasoning
         
     except Exception as e:
-        print(f"Error in prediction: {e}")
+        print(f"Error generating prediction: {e}")
         return None, None
 
-def generate_reflection(target_date, current_price, predicted_price, actual_price, context, reasoning):
+def generate_reflection(target_date, prediction_date, current_price, predicted_price, actual_price, reasoning):
     """
     Generate a reflection on why the prediction was right or wrong.
+    CRITICAL: NO LOOKAHEAD BIAS - analyze only with information available at prediction time.
     """
     
     predicted_change = ((predicted_price - current_price) / current_price) * 100
     actual_change = ((actual_price - current_price) / current_price) * 100
     
     target_date_str = datetime.strptime(target_date, '%Y-%m-%d').strftime('%B %d, %Y')
+    prediction_date_str = datetime.strptime(prediction_date, '%Y-%m-%d').strftime('%B %d, %Y')
     
-    # Truncate context for reflection
-    short_context = context[:200] + "..." if len(context) > 200 else context
+    direction_correct = (predicted_change > 0 and actual_change > 0) or (predicted_change < 0 and actual_change < 0)
     
-    reflection_prompt = f"""Analyze this SOL price prediction:
+    reflection_prompt = f"""CRITICAL: Analyze this SOL prediction using ONLY information that was available on {target_date_str}. NO HINDSIGHT BIAS.
 
-PREDICTION:
-- Date: {target_date_str}
-- Start: ${current_price:.2f}
-- Predicted: ${predicted_price:.2f} ({predicted_change:.1f}%)
-- Actual: ${actual_price:.2f} ({actual_change:.1f}%)
-- Direction: {"CORRECT" if (predicted_change > 0 and actual_change > 0) or (predicted_change < 0 and actual_change < 0) else "WRONG"}
+PREDICTION ANALYSIS:
+- Analysis Date: {target_date_str}
+- Target Date: {prediction_date_str}
+- Starting Price: ${current_price:.2f}
+- Predicted Price: ${predicted_price:.2f} ({predicted_change:.1f}%)
+- Actual Price: ${actual_price:.2f} ({actual_change:.1f}%)
+- Direction Accuracy: {"CORRECT" if direction_correct else "INCORRECT"}
+- Price Accuracy: {abs(predicted_price - actual_price):.2f} difference
 
-CONTEXT: {short_context}
+ORIGINAL REASONING:
+{reasoning}
 
-REASONING: {reasoning}
+REFLECTION TASK:
+Analyze why this prediction succeeded or failed. Consider:
+1. Quality of the available market data and analysis
+2. Effectiveness of the reasoning methodology  
+3. Impact of crypto market volatility/unpredictability
+4. Specific factors that may have been overlooked or overweighted
 
-Explain in 2-3 sentences why this prediction was right or wrong. Consider market factors, reasoning quality, and crypto volatility."""
+IMPORTANT: Do NOT use hindsight knowledge. Only reference factors that were knowable on {target_date_str}.
+
+Provide a concrete, specific 2-3 sentence analysis of what went right or wrong with this prediction approach."""
 
     try:
-        response = client.chat.completions.create(
-            model="o3-mini",
-            messages=[
-                {"role": "system", "content": "You are a professional analyst providing objective reflections on cryptocurrency predictions. You focus on market factors and analytical reasoning."},
-                {"role": "user", "content": reflection_prompt}
-            ],
-            max_completion_tokens=500
+        # Create chat with Grok
+        chat = client.chat.create(
+            model="grok-4-0709",
+            temperature=0.3
         )
         
-        return response.choices[0].message.content.strip()
+        # Add system message
+        chat.append(system("You are an objective analyst providing reflections on cryptocurrency predictions. You focus on methodology and avoid hindsight bias."))
+        
+        # Add user prompt
+        chat.append(user(reflection_prompt))
+        
+        # Get response
+        response = chat.sample()
+        return response.content.strip()
         
     except Exception as e:
-        print(f"Error in reflection: {e}")
+        print(f"Error generating reflection: {e}")
         return None
 
-def process_all_weeks():
+def needs_prediction(row):
+    """Check if a week needs prediction (any required column is empty)"""
+    required_cols = ['predicted_price', 'predicted_change_pct', 'llm_reasoning', 'llm_reflection']
+    return any(pd.isna(row[col]) or str(row[col]).strip() == '' for col in required_cols)
+
+def get_current_week_market_data(df, current_week_idx):
+    """Get current week's market data available at prediction time (NO LOOKAHEAD BIAS)"""
+    current_week = df.iloc[current_week_idx]
+    return {
+        'btc_30d_change': current_week.get('btc_30d_change_pct', 0.0),
+        'eth_30d_change': current_week.get('eth_30d_change_pct', 0.0),
+        'sol_30d_change': current_week.get('sol_30d_change_pct', 0.0),
+        'sp_30d_change': current_week.get('sp500_30d_change_pct', 0.0),
+        'btc_prices': str(current_week.get('btc_price_array', '')),
+        'eth_prices': str(current_week.get('eth_price_array', '')),
+        'sol_prices': str(current_week.get('sol_price_array', '')),
+        'sp_prices': str(current_week.get('sp_price_array', ''))
+    }
+
+def process_training_weeks():
     """
-    Process all weeks of data to generate predictions and reflections.
+    Process training weeks (first 40) to generate predictions with NO MEMORY.
+    Currently processing ONLY WEEK 1 for testing.
     """
     
-    # Load the training data
-    df = pd.read_csv('training_set.csv')
+    # Load the final training data
+    df = pd.read_csv('final_training_set.csv')
     
-    total_weeks = len(df)
+    # Process first 40 weeks (training set)
+    weeks_to_process = 40
+    
+    print(f"🚀 GENERATING TRAINING PREDICTIONS (NO MEMORY)")
+    print(f"📊 Processing first {weeks_to_process} weeks (full training set)")
+    print(f"🎯 Training set: Weeks 1-40 (no STM/LTM memory)")
+    print("=" * 60)
+    
     processed_count = 0
     success_count = 0
     
-    print(f"Processing {total_weeks} weeks of data...")
-    print("=" * 60)
-    
-    for i, row in df.iterrows():
-        # Skip if already processed (has prediction)
-        if pd.notna(row['predicted_price']) and pd.notna(row['llm_reasoning']):
-            print(f"Week {i+1}/{total_weeks} - {row['target_date']}: Already processed, skipping...")
+    for i in range(weeks_to_process):
+        row = df.iloc[i]
+        week_num = i + 1
+        
+        # Skip if already has predictions
+        if not needs_prediction(row):
+            print(f"Week {week_num}: Already has predictions - SKIPPING")
             continue
         
-        print(f"\nProcessing Week {i+1}/{total_weeks}:")
-        print(f"Target Date: {row['target_date']}")
-        print(f"Current Price: ${row['target_price']:.2f}")
-        print(f"Actual Price: ${row['actual_price']:.2f}")
-        print(f"Actual Change: {row['actual_change_pct']:.2f}%")
-        print(f"Context: {row['summarized_context'][:100]}...")
-        print("\n" + "-"*40)
+        print(f"\n🧠 PROCESSING WEEK {week_num} (Training - No Memory)")
+        print(f"📅 Target Date: {row['target_date']}")
+        print(f"📅 Prediction Date: {row['prediction_date']}")
+        print(f"💰 Current SOL Price: ${row['target_date_sol_price']:.2f}")
+        print(f"💰 Actual SOL Price: ${row['prediction_date_sol_price']:.2f}")
+        print(f"📊 Actual Change: {row['actual_change_pct']:.2f}%")
+        
+        # Get current week's market data (available at target_date - no lookahead bias)
+        market_data = get_current_week_market_data(df, i)
+        
+        # Get current week's tweets
+        tweets = row.get('tweets', 'No tweet data available')
+        
+        print(f"📱 Tweet data length: {len(str(tweets))} chars")
+        print(f"📈 Market context (as of target date): BTC {market_data['btc_30d_change']:.1f}%, ETH {market_data['eth_30d_change']:.1f}%, SOL {market_data['sol_30d_change']:.1f}%")
+        print("\n" + "-"*50)
         
         # Generate prediction
-        print("Generating prediction...")
+        print("🤖 Generating prediction with Grok...")
         predicted_price, reasoning = generate_prediction(
             row['target_date'],
-            row['target_price'],
-            row['summarized_context'],
-            row['prediction_end']
+            row['target_date_sol_price'],
+            row['prediction_date'],
+            tweets,
+            market_data
         )
         
         if predicted_price is None:
-            print(f"❌ Failed to generate prediction for week {i+1}")
+            print(f"❌ Failed to generate prediction for week {week_num}")
             continue
         
         # Calculate predicted change percentage
-        predicted_change_pct = ((predicted_price - row['target_price']) / row['target_price']) * 100
+        predicted_change_pct = ((predicted_price - row['target_date_sol_price']) / row['target_date_sol_price']) * 100
         
         print(f"✅ Predicted Price: ${predicted_price:.2f}")
         print(f"✅ Predicted Change: {predicted_change_pct:.2f}%")
-        print(f"✅ Reasoning: {reasoning[:100]}...")
+        print(f"✅ Reasoning: {reasoning[:120]}...")
         
         # Generate reflection
-        print("Generating reflection...")
+        print("🔍 Generating reflection...")
         reflection = generate_reflection(
             row['target_date'],
-            row['target_price'],
+            row['prediction_date'],
+            row['target_date_sol_price'],
             predicted_price,
-            row['actual_price'],
-            row['summarized_context'],
+            row['prediction_date_sol_price'],
             reasoning
         )
         
         if reflection is None:
-            print(f"❌ Failed to generate reflection for week {i+1}")
+            print(f"❌ Failed to generate reflection for week {week_num}")
             continue
         
-        print(f"✅ Reflection: {reflection[:100]}...")
+        print(f"✅ Reflection: {reflection[:120]}...")
         
-        # Update the dataframe with proper dtype handling
-        df.loc[i, 'predicted_price'] = predicted_price
-        df.loc[i, 'predicted_change_pct'] = predicted_change_pct
-        df.loc[i, 'llm_reasoning'] = str(reasoning)
-        df.loc[i, 'llm_reflection'] = str(reflection)
+        # Update the dataframe (SAFE - only update empty columns)
+        df.at[i, 'predicted_price'] = predicted_price
+        df.at[i, 'predicted_change_pct'] = predicted_change_pct
+        df.at[i, 'llm_reasoning'] = str(reasoning)
+        df.at[i, 'llm_reflection'] = str(reflection)
         
-        # Save after each week to avoid losing progress
-        df.to_csv('training_set.csv', index=False)
+        # Save immediately to avoid losing progress
+        df.to_csv('final_training_set.csv', index=False)
         
-        # Summary for this week
-        direction_correct = ('YES' if (predicted_change_pct > 0 and row['actual_change_pct'] > 0) or (predicted_change_pct < 0 and row['actual_change_pct'] < 0) else 'NO')
-        print(f"📊 WEEK SUMMARY:")
-        print(f"   Predicted: ${predicted_price:.2f} ({predicted_change_pct:.2f}%)")
-        print(f"   Actual: ${row['actual_price']:.2f} ({row['actual_change_pct']:.2f}%)")
-        print(f"   Direction Correct: {direction_correct}")
+        # Week summary
+        direction_correct = (predicted_change_pct > 0 and row['actual_change_pct'] > 0) or (predicted_change_pct < 0 and row['actual_change_pct'] < 0)
+        print(f"\n📊 WEEK {week_num} SUMMARY:")
+        print(f"   🎯 Predicted: ${predicted_price:.2f} ({predicted_change_pct:.2f}%)")
+        print(f"   🎯 Actual: ${row['prediction_date_sol_price']:.2f} ({row['actual_change_pct']:.2f}%)")
+        print(f"   🎯 Direction: {'✅ CORRECT' if direction_correct else '❌ INCORRECT'}")
+        print(f"   🎯 Price Error: ${abs(predicted_price - row['prediction_date_sol_price']):.2f}")
         
         processed_count += 1
         success_count += 1
         
-        print(f"✅ Week {i+1} completed successfully!")
+        print(f"✅ Week {week_num} completed successfully!")
         print("=" * 60)
         
-        # Add a small delay to avoid rate limiting
-        time.sleep(2)
+        # Delay to avoid rate limiting
+        time.sleep(3)
     
-    print(f"\n🎉 FINAL SUMMARY:")
-    print(f"   Total weeks: {total_weeks}")
-    print(f"   Processed: {processed_count}")
-    print(f"   Successful: {success_count}")
-    print(f"   Success rate: {(success_count/processed_count)*100:.1f}%" if processed_count > 0 else "   Success rate: 0%")
+    print(f"\n🎉 TRAINING PREDICTION SUMMARY:")
+    print(f"   📊 Weeks processed: {processed_count}")
+    print(f"   ✅ Successful: {success_count}")
+    print(f"   📈 Success rate: {(success_count/processed_count)*100:.1f}%" if processed_count > 0 else "   📈 Success rate: 0%")
     
     return success_count > 0
 
 if __name__ == "__main__":
-    print("Starting Phase 3: LLM Prediction Generation")
-    print("Processing all weeks...")
+    print("🚀 PHASE 3: TRAINING SET PREDICTION GENERATION")
+    print("🎯 Generating predictions for training weeks (NO MEMORY)")
+    print("📊 Processing all 40 training weeks...")
     print("\n")
     
-    if process_all_weeks():
-        print("\n🎉 All weeks processing completed successfully!")
+    if process_training_weeks():
+        print("\n🎉 All 40 training weeks processed successfully!")
+        print("📝 Next step: Create inference-time memory system for test weeks 41-51")
     else:
         print("\n❌ Processing failed or no weeks were processed.") 
